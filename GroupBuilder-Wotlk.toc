@@ -1,0 +1,9 @@
+## Interface: 20504
+## Title: |cFFFFFFFFGroupBuilder|r|cFF00FF00 v0.1|r
+## Author: Tandoor
+## Notes: A quick group builder
+## Version: 0.1
+## RequiredDeps:
+
+# Main
+GroupBuilder.lua
