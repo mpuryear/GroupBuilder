@@ -502,9 +502,12 @@ function GroupBuilder:RefreshUI(groupToInvite, dungeonQueue)
 	
 	-- Update UI elements for when the queue is complete
 	if dungeonQueue.tanks <= 0 and dungeonQueue.healers <= 0 and dungeonQueue.dps <= 0 then
+		if inviteGroupButton:IsShown() == false then 
+			PlaySound(SOUNDKIT.READY_CHECK);
+		end
 		inviteGroupButton:Show()
 	end
-	
+
 	GroupBuilder:PrintGroupCache(groupToInvite)
 end
 
@@ -829,7 +832,7 @@ function GroupBuilder:FillGroupFor(dungeonId)
 	if IsInGroup() then
 		SendChatMessage("[GroupBuilder] Joined queue for " .. tostring(dungeonQueue.dungeonName), "PARTY", nil, nil)
 	else
-		GoupBuilder:PrettyPrint("Joined queue for " .. tostring(dungeonQueue.dungeonName))
+		GroupBuilder:PrettyPrint("Joined queue for " .. tostring(dungeonQueue.dungeonName))
 	end
 	
 	C_LFGList.Search(dungeonCategoryId, { dungeonId });
